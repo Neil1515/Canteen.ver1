@@ -1,6 +1,6 @@
 ﻿namespace Canteen.ver1
 {
-    partial class AdminHomepage
+    partial class adminhomepage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,214 +28,288 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.TopPanelAdmin = new System.Windows.Forms.Panel();
+            this.adminnamelabel = new System.Windows.Forms.Label();
+            this.Logout1brn = new System.Windows.Forms.PictureBox();
+            this.adminpicturebaseonid = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.AddMealVoucherbtn = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.addcutomerbtn = new System.Windows.Forms.Button();
-            this.logoutbtn = new System.Windows.Forms.Button();
-            this.TotalCustomer = new System.Windows.Forms.Label();
-            this.TotalCanteenStaff = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.historylogsbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.manageaccountbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.canteenstaffbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.accountingbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.homebtn = new Guna.UI2.WinForms.Guna2Button();
+            this.dashpanel = new System.Windows.Forms.Panel();
+            this.TopPanelAdmin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logout1brn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adminpicturebaseonid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // TopPanelAdmin
             // 
-            this.panel1.Controls.Add(this.logoutbtn);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 396);
-            this.panel1.TabIndex = 0;
+            this.TopPanelAdmin.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.TopPanelAdmin.Controls.Add(this.adminnamelabel);
+            this.TopPanelAdmin.Controls.Add(this.Logout1brn);
+            this.TopPanelAdmin.Controls.Add(this.adminpicturebaseonid);
+            this.TopPanelAdmin.Controls.Add(this.label2);
+            this.TopPanelAdmin.Controls.Add(this.pictureBox1);
+            this.TopPanelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TopPanelAdmin.Location = new System.Drawing.Point(0, 0);
+            this.TopPanelAdmin.Name = "TopPanelAdmin";
+            this.TopPanelAdmin.Size = new System.Drawing.Size(1370, 59);
+            this.TopPanelAdmin.TabIndex = 38;
+            // 
+            // adminnamelabel
+            // 
+            this.adminnamelabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminnamelabel.AutoSize = true;
+            this.adminnamelabel.BackColor = System.Drawing.Color.Transparent;
+            this.adminnamelabel.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adminnamelabel.Location = new System.Drawing.Point(1081, 13);
+            this.adminnamelabel.Name = "adminnamelabel";
+            this.adminnamelabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.adminnamelabel.Size = new System.Drawing.Size(101, 33);
+            this.adminnamelabel.TabIndex = 42;
+            this.adminnamelabel.Text = "Admin";
+            this.adminnamelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Logout1brn
+            // 
+            this.Logout1brn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Logout1brn.BackColor = System.Drawing.Color.Transparent;
+            this.Logout1brn.BackgroundImage = global::Canteen.ver1.Properties.Resources._8723070_logout_icon;
+            this.Logout1brn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Logout1brn.Location = new System.Drawing.Point(1320, 8);
+            this.Logout1brn.Name = "Logout1brn";
+            this.Logout1brn.Size = new System.Drawing.Size(44, 44);
+            this.Logout1brn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Logout1brn.TabIndex = 41;
+            this.Logout1brn.TabStop = false;
+            this.Logout1brn.Click += new System.EventHandler(this.Logout1brn_Click);
+            // 
+            // adminpicturebaseonid
+            // 
+            this.adminpicturebaseonid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.adminpicturebaseonid.BackColor = System.Drawing.Color.Transparent;
+            this.adminpicturebaseonid.FillColor = System.Drawing.Color.Transparent;
+            this.adminpicturebaseonid.Image = global::Canteen.ver1.Properties.Resources.profile_image;
+            this.adminpicturebaseonid.ImageRotate = 0F;
+            this.adminpicturebaseonid.Location = new System.Drawing.Point(1264, 3);
+            this.adminpicturebaseonid.Name = "adminpicturebaseonid";
+            this.adminpicturebaseonid.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.adminpicturebaseonid.Size = new System.Drawing.Size(53, 53);
+            this.adminpicturebaseonid.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.adminpicturebaseonid.TabIndex = 34;
+            this.adminpicturebaseonid.TabStop = false;
+            this.adminpicturebaseonid.UseTransparentBackground = true;
+            this.adminpicturebaseonid.Click += new System.EventHandler(this.adminpicturebaseonid_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 114);
+            this.label2.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(96, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 26);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "admin name";
+            this.label2.Size = new System.Drawing.Size(216, 33);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "SAWO ADMIN";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Canteen.ver1.Properties.Resources.profile_image;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 12);
+            this.pictureBox1.BackgroundImage = global::Canteen.ver1.Properties.Resources.sawo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(8, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(115, 99);
+            this.pictureBox1.Size = new System.Drawing.Size(82, 52);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabIndex = 33;
             this.pictureBox1.TabStop = false;
             // 
-            // panel2
+            // panel1
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.TotalCustomer);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(218, 11);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 1;
+            this.panel1.Controls.Add(this.historylogsbtn);
+            this.panel1.Controls.Add(this.manageaccountbtn);
+            this.panel1.Controls.Add(this.canteenstaffbtn);
+            this.panel1.Controls.Add(this.accountingbtn);
+            this.panel1.Controls.Add(this.homebtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 59);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1370, 51);
+            this.panel1.TabIndex = 39;
             // 
-            // label5
+            // historylogsbtn
             // 
-            this.label5.AutoSize = true;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(27, 6);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(151, 17);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "TOTAL CUSTOMER";
+            this.historylogsbtn.BackColor = System.Drawing.Color.White;
+            this.historylogsbtn.BorderRadius = 1;
+            this.historylogsbtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.historylogsbtn.CheckedState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.historylogsbtn.CheckedState.FillColor = System.Drawing.Color.White;
+            this.historylogsbtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.historylogsbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.historylogsbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.historylogsbtn.DisabledState.FillColor = System.Drawing.Color.White;
+            this.historylogsbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.historylogsbtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.historylogsbtn.FillColor = System.Drawing.Color.White;
+            this.historylogsbtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.historylogsbtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.historylogsbtn.HoverState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.historylogsbtn.Location = new System.Drawing.Point(1096, 0);
+            this.historylogsbtn.Name = "historylogsbtn";
+            this.historylogsbtn.Size = new System.Drawing.Size(274, 51);
+            this.historylogsbtn.TabIndex = 38;
+            this.historylogsbtn.Text = "HISTORY LOGS";
+            this.historylogsbtn.Click += new System.EventHandler(this.historylogsbtn_Click);
             // 
-            // panel3
+            // manageaccountbtn
             // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.TotalCanteenStaff);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(424, 12);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 100);
-            this.panel3.TabIndex = 2;
+            this.manageaccountbtn.BackColor = System.Drawing.Color.White;
+            this.manageaccountbtn.BorderRadius = 1;
+            this.manageaccountbtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.manageaccountbtn.CheckedState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.manageaccountbtn.CheckedState.FillColor = System.Drawing.Color.White;
+            this.manageaccountbtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.manageaccountbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.manageaccountbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.manageaccountbtn.DisabledState.FillColor = System.Drawing.Color.White;
+            this.manageaccountbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.manageaccountbtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.manageaccountbtn.FillColor = System.Drawing.Color.White;
+            this.manageaccountbtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageaccountbtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.manageaccountbtn.HoverState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.manageaccountbtn.Location = new System.Drawing.Point(822, 0);
+            this.manageaccountbtn.Name = "manageaccountbtn";
+            this.manageaccountbtn.Size = new System.Drawing.Size(274, 51);
+            this.manageaccountbtn.TabIndex = 38;
+            this.manageaccountbtn.Text = "MANAGE ACCOUNT";
+            this.manageaccountbtn.Click += new System.EventHandler(this.manageaccountbtn_Click);
             // 
-            // label3
+            // canteenstaffbtn
             // 
-            this.label3.AutoSize = true;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(8, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(187, 17);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "TOTAL CANTEEN STAFF";
+            this.canteenstaffbtn.BackColor = System.Drawing.Color.White;
+            this.canteenstaffbtn.BorderRadius = 1;
+            this.canteenstaffbtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.canteenstaffbtn.CheckedState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.canteenstaffbtn.CheckedState.FillColor = System.Drawing.Color.White;
+            this.canteenstaffbtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.canteenstaffbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.canteenstaffbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.canteenstaffbtn.DisabledState.FillColor = System.Drawing.Color.White;
+            this.canteenstaffbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.canteenstaffbtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.canteenstaffbtn.FillColor = System.Drawing.Color.White;
+            this.canteenstaffbtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.canteenstaffbtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.canteenstaffbtn.HoverState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.canteenstaffbtn.Location = new System.Drawing.Point(548, 0);
+            this.canteenstaffbtn.Name = "canteenstaffbtn";
+            this.canteenstaffbtn.Size = new System.Drawing.Size(274, 51);
+            this.canteenstaffbtn.TabIndex = 37;
+            this.canteenstaffbtn.Text = "CANTEEN STAFF";
+            this.canteenstaffbtn.Click += new System.EventHandler(this.canteenstaffbtn_Click);
             // 
-            // button2
+            // accountingbtn
             // 
-            this.button2.Location = new System.Drawing.Point(218, 269);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(200, 103);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "ADD STAFF ACCOUNT";
-            this.button2.UseVisualStyleBackColor = true;
+            this.accountingbtn.BackColor = System.Drawing.Color.White;
+            this.accountingbtn.BorderRadius = 1;
+            this.accountingbtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.accountingbtn.CheckedState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.accountingbtn.CheckedState.FillColor = System.Drawing.Color.White;
+            this.accountingbtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.accountingbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.accountingbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.accountingbtn.DisabledState.FillColor = System.Drawing.Color.White;
+            this.accountingbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.accountingbtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.accountingbtn.FillColor = System.Drawing.Color.White;
+            this.accountingbtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountingbtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.accountingbtn.HoverState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.accountingbtn.Location = new System.Drawing.Point(274, 0);
+            this.accountingbtn.Name = "accountingbtn";
+            this.accountingbtn.Size = new System.Drawing.Size(274, 51);
+            this.accountingbtn.TabIndex = 36;
+            this.accountingbtn.Text = "ACCOUNTING";
+            this.accountingbtn.Click += new System.EventHandler(this.accountingbtn_Click);
             // 
-            // AddMealVoucherbtn
+            // homebtn
             // 
-            this.AddMealVoucherbtn.Location = new System.Drawing.Point(424, 160);
-            this.AddMealVoucherbtn.Name = "AddMealVoucherbtn";
-            this.AddMealVoucherbtn.Size = new System.Drawing.Size(200, 103);
-            this.AddMealVoucherbtn.TabIndex = 5;
-            this.AddMealVoucherbtn.Text = "ADD CUSTOMER MEAL VOUCHER";
-            this.AddMealVoucherbtn.UseVisualStyleBackColor = true;
-            this.AddMealVoucherbtn.Click += new System.EventHandler(this.AddMealVoucherbtn_Click);
+            this.homebtn.BackColor = System.Drawing.Color.White;
+            this.homebtn.BorderRadius = 1;
+            this.homebtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.homebtn.Checked = true;
+            this.homebtn.CheckedState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.homebtn.CheckedState.FillColor = System.Drawing.Color.White;
+            this.homebtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.homebtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.homebtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.homebtn.DisabledState.FillColor = System.Drawing.Color.White;
+            this.homebtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.homebtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.homebtn.FillColor = System.Drawing.Color.White;
+            this.homebtn.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homebtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.homebtn.HoverState.CustomBorderColor = System.Drawing.Color.SteelBlue;
+            this.homebtn.Location = new System.Drawing.Point(0, 0);
+            this.homebtn.Name = "homebtn";
+            this.homebtn.Size = new System.Drawing.Size(274, 51);
+            this.homebtn.TabIndex = 35;
+            this.homebtn.Text = "HOME";
+            this.homebtn.Click += new System.EventHandler(this.homebtn_Click);
             // 
-            // button4
+            // dashpanel
             // 
-            this.button4.Location = new System.Drawing.Point(424, 269);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 103);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "NONE";
-            this.button4.UseVisualStyleBackColor = true;
+            this.dashpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dashpanel.Location = new System.Drawing.Point(0, 110);
+            this.dashpanel.Name = "dashpanel";
+            this.dashpanel.Size = new System.Drawing.Size(1370, 678);
+            this.dashpanel.TabIndex = 40;
             // 
-            // addcutomerbtn
-            // 
-            this.addcutomerbtn.Location = new System.Drawing.Point(218, 160);
-            this.addcutomerbtn.Name = "addcutomerbtn";
-            this.addcutomerbtn.Size = new System.Drawing.Size(200, 103);
-            this.addcutomerbtn.TabIndex = 7;
-            this.addcutomerbtn.Text = "ADD CUSTOMER";
-            this.addcutomerbtn.UseVisualStyleBackColor = true;
-            this.addcutomerbtn.Click += new System.EventHandler(this.addcutomerbtn_Click);
-            // 
-            // logoutbtn
-            // 
-            this.logoutbtn.Location = new System.Drawing.Point(12, 349);
-            this.logoutbtn.Name = "logoutbtn";
-            this.logoutbtn.Size = new System.Drawing.Size(179, 35);
-            this.logoutbtn.TabIndex = 8;
-            this.logoutbtn.Text = "Logout";
-            this.logoutbtn.UseCompatibleTextRendering = true;
-            this.logoutbtn.UseVisualStyleBackColor = true;
-            this.logoutbtn.Click += new System.EventHandler(this.logoutbtn_Click);
-            // 
-            // TotalCustomer
-            // 
-            this.TotalCustomer.AutoSize = true;
-            this.TotalCustomer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TotalCustomer.Font = new System.Drawing.Font("Times New Roman", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalCustomer.Location = new System.Drawing.Point(71, 23);
-            this.TotalCustomer.Name = "TotalCustomer";
-            this.TotalCustomer.Size = new System.Drawing.Size(54, 61);
-            this.TotalCustomer.TabIndex = 3;
-            this.TotalCustomer.Text = "0";
-            this.TotalCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.TotalCustomer.Click += new System.EventHandler(this.TotalCustomer_Click);
-            // 
-            // TotalCanteenStaff
-            // 
-            this.TotalCanteenStaff.AutoSize = true;
-            this.TotalCanteenStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TotalCanteenStaff.Font = new System.Drawing.Font("Times New Roman", 39.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalCanteenStaff.Location = new System.Drawing.Point(75, 22);
-            this.TotalCanteenStaff.Name = "TotalCanteenStaff";
-            this.TotalCanteenStaff.Size = new System.Drawing.Size(54, 61);
-            this.TotalCanteenStaff.TabIndex = 4;
-            this.TotalCanteenStaff.Text = "0";
-            this.TotalCanteenStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // AdminHomepage
+            // adminhomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 396);
-            this.Controls.Add(this.addcutomerbtn);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.AddMealVoucherbtn);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1370, 788);
+            this.Controls.Add(this.dashpanel);
             this.Controls.Add(this.panel1);
-            this.Name = "AdminHomepage";
-            this.Text = "AdminHomepage";
-            this.Load += new System.EventHandler(this.AdminHomepage_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Controls.Add(this.TopPanelAdmin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "adminhomepage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Admin Homepage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.adminhomepage_Load);
+            this.TopPanelAdmin.ResumeLayout(false);
+            this.TopPanelAdmin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logout1brn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.adminpicturebaseonid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel TopPanelAdmin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button AddMealVoucherbtn;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button addcutomerbtn;
-        private System.Windows.Forms.Button logoutbtn;
-        private System.Windows.Forms.Label TotalCustomer;
-        private System.Windows.Forms.Label TotalCanteenStaff;
+        private System.Windows.Forms.Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button homebtn;
+        private Guna.UI2.WinForms.Guna2Button canteenstaffbtn;
+        private Guna.UI2.WinForms.Guna2Button accountingbtn;
+        private System.Windows.Forms.Panel dashpanel;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox adminpicturebaseonid;
+        private System.Windows.Forms.PictureBox Logout1brn;
+        private Guna.UI2.WinForms.Guna2Button historylogsbtn;
+        private Guna.UI2.WinForms.Guna2Button manageaccountbtn;
+        private System.Windows.Forms.Label adminnamelabel;
     }
 }

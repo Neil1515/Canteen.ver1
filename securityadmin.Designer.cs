@@ -35,7 +35,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.closebtn = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closebtn)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,7 +94,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 20);
+            this.label1.Location = new System.Drawing.Point(24, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 23);
             this.label1.TabIndex = 0;
@@ -108,19 +110,35 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "ADMIN ACCESS";
             // 
+            // closebtn
+            // 
+            this.closebtn.BackColor = System.Drawing.Color.Transparent;
+            this.closebtn.BackgroundImage = global::Canteen.ver1.Properties.Resources._3017962_close_error_exit_failure_fault_icon;
+            this.closebtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.closebtn.Location = new System.Drawing.Point(349, 12);
+            this.closebtn.Name = "closebtn";
+            this.closebtn.Size = new System.Drawing.Size(34, 27);
+            this.closebtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.closebtn.TabIndex = 31;
+            this.closebtn.TabStop = false;
+            this.closebtn.Click += new System.EventHandler(this.closebtn_Click);
+            // 
             // securityadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 204);
+            this.Controls.Add(this.closebtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "securityadmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "securityadmin";
             this.Load += new System.EventHandler(this.securityadmin_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closebtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,5 +153,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox closebtn;
     }
 }

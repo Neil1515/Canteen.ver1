@@ -1,72 +1,169 @@
-﻿using System;
+﻿using Canteen.ver1.ADMIN_CONTROL;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Data.SqlClient;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Canteen.ver1
 {
-    public partial class AdminHomepage : Form
+    public partial class adminhomepage : Form
     {
-        private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\John Neil Aying\source\repos\Canteen.ver1\CanteenDB.mdf;Integrated Security=True";
-        public AdminHomepage()
+        private int adminId;
+
+        public adminhomepage(int adminId)
         {
             InitializeComponent();
+            this.adminId = adminId;
+            home home1 = new home();
+            addUserControl(home1);
+
+            // Load and display the admin's picture based on the admin ID.
+            LoadAdminPicture(adminId);
+        }
+        private void LoadAdminPicture(int adminId)
+        {
+            // Define the network path where the pictures are stored.
+            string networkPath = @"\\172.16.0.4\CanteenManagementSystem\Canteen.ver1\Admin Picture";
+
+            // Construct the full file path based on the admin ID.
+            string filePath = Path.Combine(networkPath, adminId.ToString() + ".jpg");
+
+            // Check if the file exists.
+            if (File.Exists(filePath))
+            {
+                // Dispose of the previously loaded image, if it exists
+                if (adminpicturebaseonid.Image != null)
+                {
+                    adminpicturebaseonid.Image.Dispose();
+                }
+
+                // Load and display the image in a PictureBox or any other control of your choice.
+                Image image = Image.FromFile(filePath);
+                adminpicturebaseonid.Image = image;
+            }
+            else
+            {
+                MessageBox.Show("Image not found for this admin ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void adminhomepage_Load(object sender, EventArgs e)
+        {
+
+        }
+        public string AdminName
+        {
+            get { return adminnamelabel.Text; }
+            set { adminnamelabel.Text = value; }
+        }
+        private void addUserControl(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            dashpanel.Controls.Clear();
+            dashpanel.Controls.Add(userControl);
+            userControl.BringToFront();
+
         }
 
-        private void AdminHomepage_Load(object sender, EventArgs e)
+        private void homebtn_Click(object sender, EventArgs e)
         {
-            // Load the total customer count when the form loads
-            UpdateTotalCustomerCount();
+            home home1 = new home();
+            addUserControl(home1);
+        }
+         
+        private void accountingbtn_Click(object sender, EventArgs e)
+        {
+            accounting Accounting1 = new accounting();
+            addUserControl(Accounting1);
         }
 
-        private void addcutomerbtn_Click(object sender, EventArgs e)
+        private void canteenstaffbtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            AddCustomer AddCustomer = new AddCustomer();
-            AddCustomer.ShowDialog();
+            canteenstaff canteenstaff1 = new canteenstaff();
+            addUserControl(canteenstaff1);
         }
 
-        private void logoutbtn_Click(object sender, EventArgs e)
+        private void Logout1brn_Click(object sender, EventArgs e)
         {
-            Hide();
+            // Update the logout time in the historylogstbl table
+            UpdateLogoutHistory(adminId);
+
+            this.Hide();
             login login = new login();
             login.ShowDialog();
+            
         }
-
-        private void TotalCustomer_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void UpdateTotalCustomerCount()
+        private void UpdateLogoutHistory(int userId)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlConnection cn = new SqlConnection(@"Data Source=LASER-GENPC01;Initial Catalog=CanteenDB;Integrated Security=True"))
                 {
-                    connection.Open();
+                    cn.Open();
 
-                    // Execute a SQL command to get the total customer count
-                    string query = "SELECT COUNT(*) FROM customertbl";
-                    SqlCommand command = new SqlCommand(query, connection);
-
-                    // Execute the query and get the result
-                    int totalCustomers = (int)command.ExecuteScalar();
-
-                    // Set the text of the TotalCustomer label
-                    TotalCustomer.Text = $"{totalCustomers}";
+                    // Update the datetimeout in the historylogstbl table
+                    using (SqlCommand cmd = new SqlCommand("UPDATE historylogstbl SET datetimeout = @logoutTime WHERE userId = @userId AND datetimeout IS NULL", cn))
+                    {
+                        cmd.Parameters.AddWithValue("@userId", userId);
+                        cmd.Parameters.AddWithValue("@logoutTime", DateTime.Now);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Failed to update logout history: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void AddMealVoucherbtn_Click(object sender, EventArgs e)
+        private void manageaccountbtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            AddCustomerMealVoucher MealVoucher = new AddCustomerMealVoucher();
-            MealVoucher.ShowDialog();
+            adminmanageaccount adminmanageaccount = new adminmanageaccount(adminId);
+            adminmanageaccount.PictureUpdated += UpdateAdminPicture;
+            adminmanageaccount.AdminNameUpdated += UpdateAdminName;
+            addUserControl(adminmanageaccount);
+        }
+        // Handle the event by updating the displayed name
+        private void UpdateAdminName(string newCanteenStaffName)
+        {
+            AdminName = newCanteenStaffName;
+        }
+        private void UpdateAdminPicture(string newImagePath)
+        {
+            if (File.Exists(newImagePath))
+            {
+                // Dispose of the previously loaded image, if it exists
+                if (adminpicturebaseonid.Image != null)
+                {
+                    adminpicturebaseonid.Image.Dispose();
+                }
+
+                // Load the new image from the specified path
+                Image image = Image.FromFile(newImagePath);
+
+                // Set the new image as the picture for the adminpicturebaseonid control
+                adminpicturebaseonid.Image = image;
+            }
+            else
+            {
+                MessageBox.Show("The selected image file does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void adminpicturebaseonid_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void historylogsbtn_Click(object sender, EventArgs e)
+        {
+            histlogs histlogs = new histlogs(adminId); // Pass the adminId
+            addUserControl(histlogs);
         }
     }
 }

@@ -1,167 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Canteen.ver1.CANTEEN_STAFF_CONTROL;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Canteen.ver1
 {
     public partial class DashBoard : Form
     {
-        
         private double currentTotal = 0;
-        private char selectedOperator = ' ';
-        
-        public DashBoard()
+        private Reports reportsForm;
+
+        public Reports ReportsFormReference { get; private set; }
+        public canteenstaffhomepage StaffHomepageReference { get; set; }
+
+
+        public DashBoard(canteenstaffhomepage staffHomepage)
         {
-            InitializeComponent();
+            InitializeComponent ();
+            this.StaffHomepageReference = staffHomepage; // Store the reference to the StaffHomepage
+            //reportsForm = new Reports();
+            timer1.Interval = 1000; // Set the Timer interval to 1000ms (1 second)
+            timer1.Start(); // Start the Timer
         }
 
         private void DashBoard_Load(object sender, EventArgs e)
         {
             this.KeyPress += DashBoard_KeyPress;
+
+            UpdateDateTime();
         }
-        private void paybtn_Click(object sender, EventArgs e)
+
+
+        private void UpdateDateTime()
         {
-            string input = totaltextBox.Text.Trim();
-            if (!string.IsNullOrEmpty(input))
-            {
-                try
-                {
-                    DataTable dataTable = new DataTable();
-                    object result = dataTable.Compute(input, "");
-                    currentTotal = Convert.ToDouble(result); // Update currentTotal with the computed value
+            // Display the formatted date and time
+            string formattedDate = DateTime.Now.ToString("dddd, d, MMM");
+            string formattedTime = DateTime.Now.ToString("hh:mm:ss tt");
 
-                    // Pass the updated total value and expression to paymentmethod
-                    paymentmethod paymentForm = new paymentmethod(currentTotal);
-                    paymentForm.ShowDialog();
-
-                    // Pass the same total value to UseMealVoucher form
-                    //UseMealVoucher voucherForm = new UseMealVoucher(currentTotal);
-                   // voucherForm.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
+            datelabel.Text = formattedDate;
+            timelabel.Text = formattedTime;
         }
-
-        private void zerobtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "0";
-        }
-
-        private void onebtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "1";  
-        }
-
-        private void twobtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "2";
-        }
-
-        private void threebtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "3";
-        }
-
-        private void fourbtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "4";
-        }
-
-        private void fivebtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "5";
-        }
-
-        private void sixbtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "6";
-        }
-
-        private void sevenbtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "7";
-        }
-
-        private void eightbtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "8";
-        }
-
-        private void ninebtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text += "9";
-        }
-
-        private void clearbtn_Click(object sender, EventArgs e)
-        {
-            totaltextBox.Text = ""; 
-            currentTotal = 0;
-            selectedOperator = ' ';
-        }
-
-        private void percentbtn_Click(object sender, EventArgs e)
-        {
-            // Append the minus operator to the existing text
-            totaltextBox.Text += "%";
-            selectedOperator = '%';
-        }
-
-        private void negativebtn_Click(object sender, EventArgs e)
-        {
-            // Append the minus operator to the existing text
-            totaltextBox.Text += "-";
-            selectedOperator = '-';
-        }
-
-        private void plusbtn_Click(object sender, EventArgs e)
-        {
-            // Append the plus operator to the existing text
-            totaltextBox.Text += "+";
-            selectedOperator = '+';
-        }
-
-        private void dividebtn_Click(object sender, EventArgs e)
-        {
-            // Append the division operator to the existing text
-            totaltextBox.Text += "/";
-            selectedOperator = '/';
-        }
-
-        private void timesbtn_Click(object sender, EventArgs e)
-        {
-            // Append the multiplication operator to the existing text
-            totaltextBox.Text += "*";
-            selectedOperator = '*';
-        }
-
-        private void dotbtn_Click(object sender, EventArgs e)
-        {
-            // Append the minus operator to the existing text
-            totaltextBox.Text += ".";
-            selectedOperator = '.';
-        }
-
         private void equalbtn_Click(object sender, EventArgs e)
         {
             // Validate input
             string input = totaltextBox.Text.Trim();
+
             if (string.IsNullOrEmpty(input))
             {
                 MessageBox.Show("Please enter an expression.");
                 return;
             }
 
-            // Use DataTable.Compute to evaluate the expression
             try
             {
                 DataTable dataTable = new DataTable();
@@ -174,19 +64,83 @@ namespace Canteen.ver1
             }
         }
 
-        private void Logoutbtn_Click(object sender, EventArgs e)
+        private void chargebtn_Click(object sender, EventArgs e)
         {
-            Hide();
-            login login1 = new login();
-            login1.ShowDialog();
+            string input = totaltextBox.Text.Trim();
+            if (!string.IsNullOrEmpty(input))
+            {
+                try
+                {
+                    DataTable dataTable = new DataTable();
+                    object result = dataTable.Compute(input, "");
+                    currentTotal = Convert.ToDouble(result);
+
+                    // Check if the total is valid
+                    if (currentTotal <= 0)
+                    {
+                        MessageBox.Show("Invalid total amount. Please enter a valid amount.");
+                        return;
+                    }
+
+                    // Pass the updated total value and expression to the customer charge form
+                    CustomerCharges Voucher = new CustomerCharges(currentTotal);
+                    Voucher.ShowDialog();
+
+                    // Clear the textbox after the transaction is completed
+                    totaltextBox.Text = string.Empty;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
         }
 
-        private void Delbtn_Click(object sender, EventArgs e)
+        private void backbtn_Click(object sender, EventArgs e)
         {
-            if (totaltextBox.Text.Length > 0)
+            this.StaffHomepageReference.addUserControl(new homecanteen());
+            Close();
+        }
+
+        private void cashpaymentbtn_Click(object sender, EventArgs e)
+        {
+            string input = totaltextBox.Text.Trim();
+            if (!string.IsNullOrEmpty(input))
             {
-                totaltextBox.Text = totaltextBox.Text.Remove(totaltextBox.Text.Length - 1);
+                try
+                {
+                    DataTable dataTable = new DataTable();
+                    object result = dataTable.Compute(input, "");
+                    currentTotal = Convert.ToDouble(result);
+
+                    // Check if the total is valid
+                    if (currentTotal <= 0)
+                    {
+                        MessageBox.Show("Invalid total amount. Please enter a valid amount.");
+                        return;
+                    }
+
+                    // Pass the reference to the Reports form to the paymentcash form
+                    paymentcash paymentCashForm = new paymentcash(currentTotal, reportsForm); // Use the reference to the reportsForm you initialized above
+
+                    // Show the payment form
+                    paymentCashForm.ShowDialog();
+
+                    // Clear the textbox after the transaction is completed
+                    totaltextBox.Text = string.Empty;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
             }
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Update the time label every second
+            UpdateDateTime();
         }
     }
 }

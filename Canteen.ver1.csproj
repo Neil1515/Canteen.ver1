@@ -2,29 +2,50 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SSDTUnitTestPath Condition="'$(SSDTUnitTestPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB</SSDTUnitTestPath>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>\\172.16.0.4\CanteenManagementSystem\publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <InstallUrl>\\172.16.0.4\CanteenManagementSystem\Canteen.ver1\publish\</InstallUrl>
+    <UpdateUrl>\\172.16.0.4\CanteenManagementSystem\Canteen.ver1\</UpdateUrl>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <SSDTPath Condition="'$(SSDTPath)' == ''">$(VsInstallRoot)\Common7\IDE\Extensions\Microsoft\SQLDB\DAC</SSDTPath>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>FF97FAB1077AC85C67DAD1D5F7DE816A31BBD07D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Canteen.ver1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -48,6 +69,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -64,6 +88,21 @@
     </Reference>
     <Reference Include="Azure.Identity, Version=1.3.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
       <HintPath>packages\Azure.Identity.1.3.0\lib\netstandard2.0\Azure.Identity.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=6.2.9.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.6.2.9\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>C:\Users\mvferrer\Downloads\Guna.UI-Framework-Lib-master\Guna.UI WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.5, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>packages\Guna.UI2.WinForms.2.0.4.5\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -92,16 +131,28 @@
     <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.IdentityModel.Tokens.6.8.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="OfficeOpenXml.Core.ExcelPackage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\OfficeOpenXml.Core.ExcelPackage.1.0.0\lib\net46\OfficeOpenXml.Core.ExcelPackage.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.Composition.Registration" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Configuration.ConfigurationManager.4.7.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -109,6 +160,15 @@
     <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\System.IdentityModel.Tokens.Jwt.6.8.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
     </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
     </Reference>
@@ -140,6 +200,7 @@
     <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -147,6 +208,8 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -159,23 +222,181 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddCustomerMealVoucher.cs">
+    <Compile Include="ACCOUNTING CONTROL\customerdetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\customerdetail.Designer.cs">
+      <DependentUpon>customerdetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\homeaccounting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\homeaccounting.Designer.cs">
+      <DependentUpon>homeaccounting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\hostorylogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\hostorylogs.Designer.cs">
+      <DependentUpon>hostorylogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\accountingmanageaccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\accountingmanageaccount.Designer.cs">
+      <DependentUpon>accountingmanageaccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\reports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ACCOUNTING CONTROL\reports.Designer.cs">
+      <DependentUpon>reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="accountingtable.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCustomerMealVoucher.Designer.cs">
-      <DependentUpon>AddCustomerMealVoucher.cs</DependentUpon>
+    <Compile Include="accountingtable.Designer.cs">
+      <DependentUpon>accountingtable.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminHomepage.cs">
+    <Compile Include="ADMIN CONTROL\accounting.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\accounting.Designer.cs">
+      <DependentUpon>accounting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\adminmanageaccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\adminmanageaccount.Designer.cs">
+      <DependentUpon>adminmanageaccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\canteenstaff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\canteenstaff.Designer.cs">
+      <DependentUpon>canteenstaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\histlogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\histlogs.Designer.cs">
+      <DependentUpon>histlogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADMIN CONTROL\home.Designer.cs">
+      <DependentUpon>home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminhomepage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminHomepage.Designer.cs">
-      <DependentUpon>AdminHomepage.cs</DependentUpon>
+    <Compile Include="adminhomepage.Designer.cs">
+      <DependentUpon>adminhomepage.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddCustomer.cs">
+    <Compile Include="accountinghomepage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddCustomer.Designer.cs">
-      <DependentUpon>AddCustomer.cs</DependentUpon>
+    <Compile Include="accountinghomepage.Designer.cs">
+      <DependentUpon>accountinghomepage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\canteenstaffhistlogs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\canteenstaffhistlogs.Designer.cs">
+      <DependentUpon>canteenstaffhistlogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\cashreports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\cashreports.Designer.cs">
+      <DependentUpon>cashreports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\chargesreports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\chargesreports.Designer.cs">
+      <DependentUpon>chargesreports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\customercredits.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\customercredits.Designer.cs">
+      <DependentUpon>customercredits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\homecanteen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\homecanteen.Designer.cs">
+      <DependentUpon>homecanteen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\paidcreditreports.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\paidcreditreports.Designer.cs">
+      <DependentUpon>paidcreditreports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\reports1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\reports1.Designer.cs">
+      <DependentUpon>reports1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\staffmanageaccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CANTEEN STAFF CONTROL\staffmanageaccount.Designer.cs">
+      <DependentUpon>staffmanageaccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CanteenDBDataSet.cs">
+      <DependentUpon>CanteenDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CanteenDBDataSet0admin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CanteenDBDataSet0admin.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="canteenstafftable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="canteenstafftable.Designer.cs">
+      <DependentUpon>canteenstafftable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerCharges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerCharges.Designer.cs">
+      <DependentUpon>CustomerCharges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Paymanual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Paymanual.Designer.cs">
+      <DependentUpon>Paymanual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="paymentcash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="paymentcash.Designer.cs">
+      <DependentUpon>paymentcash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="remainingpayable500.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="remainingpayable500.Designer.cs">
+      <DependentUpon>remainingpayable500.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="canteenstaffhomepage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="canteenstaffhomepage.Designer.cs">
+      <DependentUpon>canteenstaffhomepage.cs</DependentUpon>
     </Compile>
     <Compile Include="CanteenDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,12 +415,6 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="paymentmethod.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="paymentmethod.Designer.cs">
-      <DependentUpon>paymentmethod.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="securityadmin.cs">
@@ -208,29 +423,95 @@
     <Compile Include="securityadmin.Designer.cs">
       <DependentUpon>securityadmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="UseMealVoucher.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UseMealVoucher.Designer.cs">
-      <DependentUpon>UseMealVoucher.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="AddCustomerMealVoucher.resx">
-      <DependentUpon>AddCustomerMealVoucher.cs</DependentUpon>
+    <EmbeddedResource Include="ACCOUNTING CONTROL\customerdetail.resx">
+      <DependentUpon>customerdetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminHomepage.resx">
-      <DependentUpon>AdminHomepage.cs</DependentUpon>
+    <EmbeddedResource Include="ACCOUNTING CONTROL\homeaccounting.resx">
+      <DependentUpon>homeaccounting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddCustomer.resx">
-      <DependentUpon>AddCustomer.cs</DependentUpon>
+    <EmbeddedResource Include="ACCOUNTING CONTROL\hostorylogs.resx">
+      <DependentUpon>hostorylogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ACCOUNTING CONTROL\accountingmanageaccount.resx">
+      <DependentUpon>accountingmanageaccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ACCOUNTING CONTROL\reports.resx">
+      <DependentUpon>reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="accountingtable.resx">
+      <DependentUpon>accountingtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN CONTROL\accounting.resx">
+      <DependentUpon>accounting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN CONTROL\adminmanageaccount.resx">
+      <DependentUpon>adminmanageaccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN CONTROL\canteenstaff.resx">
+      <DependentUpon>canteenstaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN CONTROL\histlogs.resx">
+      <DependentUpon>histlogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ADMIN CONTROL\home.resx">
+      <DependentUpon>home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminhomepage.resx">
+      <DependentUpon>adminhomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="accountinghomepage.resx">
+      <DependentUpon>accountinghomepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\canteenstaffhistlogs.resx">
+      <DependentUpon>canteenstaffhistlogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\cashreports.resx">
+      <DependentUpon>cashreports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\chargesreports.resx">
+      <DependentUpon>chargesreports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\customercredits.resx">
+      <DependentUpon>customercredits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\homecanteen.resx">
+      <DependentUpon>homecanteen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\paidcreditreports.resx">
+      <DependentUpon>paidcreditreports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\reports1.resx">
+      <DependentUpon>reports1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CANTEEN STAFF CONTROL\staffmanageaccount.resx">
+      <DependentUpon>staffmanageaccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="canteenstafftable.resx">
+      <DependentUpon>canteenstafftable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerCharges.resx">
+      <DependentUpon>CustomerCharges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Paymanual.resx">
+      <DependentUpon>Paymanual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paymentcash.resx">
+      <DependentUpon>paymentcash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="remainingpayable500.resx">
+      <DependentUpon>remainingpayable500.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="canteenstaffhomepage.resx">
+      <DependentUpon>canteenstaffhomepage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="paymentmethod.resx">
-      <DependentUpon>paymentmethod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -245,10 +526,8 @@
     <EmbeddedResource Include="securityadmin.resx">
       <DependentUpon>securityadmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UseMealVoucher.resx">
-      <DependentUpon>UseMealVoucher.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include=".editorconfig" />
+    <None Include="Canteen.ver1_TemporaryKey.pfx" />
     <None Include="CanteenDBDataSet.xsc">
       <DependentUpon>CanteenDBDataSet.xsd</DependentUpon>
     </None>
@@ -259,6 +538,17 @@
     </None>
     <None Include="CanteenDBDataSet.xss">
       <DependentUpon>CanteenDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CanteenDBDataSet0admin.xsc">
+      <DependentUpon>CanteenDBDataSet0admin.xsd</DependentUpon>
+    </None>
+    <None Include="CanteenDBDataSet0admin.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CanteenDBDataSet0admin.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CanteenDBDataSet0admin.xss">
+      <DependentUpon>CanteenDBDataSet0admin.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -285,6 +575,31 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>CanteenDB.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\a-unscreen.gif" />
+    <None Include="Resources\egg-unscreen.gif" />
+    <None Include="Resources\sawobackground1.png" />
+    <None Include="Resources\sawobackground.png" />
+    <None Include="Resources\username.png" />
+    <None Include="Resources\km_20231020_1080p_30f_20231020_084652-_online-video-cutter.com_.gif" />
+    <None Include="Resources\a-removebg-preview.png" />
+    <None Include="Resources\a.png" />
+    <None Include="Resources\326679_refresh_reload_icon.png" />
+    <None Include="Resources\peso.jpg" />
+    <None Include="Resources\8723070_logout_icon.png" />
+    <None Include="Resources\SAWO1.png" />
+    <None Include="Resources\12333.png" />
+    <None Include="Resources\1564520_code_open_password_icon.png" />
+    <None Include="Resources\2353457.png" />
+    <None Include="Resources\123.png" />
+    <None Include="Resources\3017964_close_error_exit_failure_fill_icon %281%29.png" />
+    <None Include="Resources\3017964_close_error_exit_failure_fill_icon.png" />
+    <None Include="Resources\3017963_close_error_exit_failure_invalid_icon.png" />
+    <None Include="Resources\3017933_allowance_leave_log_logout_out_icon.png" />
+    <None Include="Resources\49532_logout_icon.png" />
+    <None Include="Resources\5539639_arrow_back_direction_left_navigation_icon.png" />
+    <None Include="Resources\sasa.jpg" />
+    <None Include="Resources\3017962_close_error_exit_failure_fault_icon.png" />
+    <None Include="Resources\y2mate.is - Blue Slide Tile Edit Elements-cCGan1_10OM-1080pp-1695878507.gif" />
     <None Include="Resources\profile image.jpg" />
   </ItemGroup>
   <ItemGroup Condition="$(VisualStudioVersion) == '17.0'">
@@ -313,6 +628,10 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <SsdtUnitTestVersion>3.1</SsdtUnitTestVersion>
